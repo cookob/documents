@@ -117,6 +117,11 @@ HostName github.com
 User git
 IdentityFile ~/.ssh/id_rsa_newname #newname 刚才生成的新命名文件名称
 ``` 
+这样做的目的在于后面使用时通过 `@newname.github.com` 和 `@github.com` 加以区分：
+
+例如：git remote add origin git@XXX.github.com:cookob/documents.git `其中的XXX就是添加的新命名`
+
+我们默认的写法是：git remote add origin git@github.com:cookob/documents.git
 
 4. ssh-agent -s 
 
