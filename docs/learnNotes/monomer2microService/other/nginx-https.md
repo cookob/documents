@@ -1,7 +1,12 @@
 # linux下使用nginx配置https出错: [emerg] unknown directive "ssl" in ...
 
+::: danger
+
 错误信息｛nginx: [emerg] unknown directive "ssl" in ...｝
-## 首先进入nginx初始的安装目录下：
+
+:::
+
+## 首先进入nginx初始的安装目录下执行命令：
 ``` bash
 ./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module
 ```

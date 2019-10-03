@@ -1,5 +1,7 @@
 # Spring Cloud Netflix 微服务实战：在线订货平台
 
+:tada: [源码地址：https://github.com/cookob/online-ordering-platform](https://github.com/cookob/online-ordering-platform) :tada:
+
 ## 项目需求
 
 客户端：针对普通用户，用户登录、用户退出、商品订购、我的订单。

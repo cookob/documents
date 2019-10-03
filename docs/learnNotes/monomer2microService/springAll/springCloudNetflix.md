@@ -1,8 +1,12 @@
 # Spring Cloud Netflix 入门
 
+::: warning
+
 Spring Cloud Netflix 系列技术栈已进入维护模式（不再更新）
 
-## 前言
+:::
+
+## 1. 前言
 
 为什么需要微服务？
 
@@ -75,9 +79,9 @@ Spring Cloud 的服务治理使用 Eureka 来实现，Eureka 是 Netflix 开源�
 - Eureka Server，注册中心
 - Eureka Client，所有要进行注册的微服务通过 Eureka Client 连接到 Eureka Server，完成注册。
 
-## Eureka Server代码实现（注册中心）
+## 2. Eureka Server代码实现（注册中心）
 
-### 创建父工程，pom.xml
+### 2.1. 创建父工程，pom.xml
 （也可以直接在Spring Boot项目上搭建，或者在IDEA中用 Spring Initializr 在选项里选择这些东西一键搞定，不过要注意尽量先不要使用最新版本，避免踩坑）
 
 ```xml
@@ -140,7 +144,7 @@ Spring Cloud 的服务治理使用 Eureka 来实现，Eureka 是 Netflix 开源�
 </dependencyManagement>
 ```
 
-### 在父工程下创建 Module，pom.xml
+### 2.2. 在父工程下创建 Module，pom.xml
 
 ```xml
 <dependencies>
@@ -152,7 +156,7 @@ Spring Cloud 的服务治理使用 Eureka 来实现，Eureka 是 Netflix 开源�
 </dependencies>
 ```
 
-### 在子模块下创建配置文件 application.yml，添加 Eureka Server 相关配置。
+### 2.3. 在子模块下创建配置文件 application.yml，添加 Eureka Server 相关配置。
 
 ```yaml
 server:
@@ -175,7 +179,7 @@ eureka:
 
 `eureka.client.service-url.defaultZone`：注册中心的访问地址。
 
-### 在子模块下创建启动类
+### 2.4. 在子模块下创建启动类
 
 ```java
 package com.minichn;
@@ -199,16 +203,19 @@ public class EurekaServerApplication {
 
 `@EnableEurekaServer`：声明该类是一个 Eureka Server 微服务，提供服务注册和服务发现功能，即注册中心。
 
-- 至此，注册中心已搭建成功，启动Eureka Server，访问注册中心界面 http://localhost:8761
+- 至此，注册中心已搭建成功，启动Eureka Server，访问注册中心界面 :tada: [http://localhost:8761](http://localhost:8761) :tada:
+
       Instances currently registered with Eureka：
+	  
       当前注册到Eureka的实例（即：当前注册到注册中心里的微服务）
+	  
       No instances available：没有实例可以用（还没有注册服务）
 
 服务提供者和服务消费者实际上是从业务角度来划分的。如果单纯的从组件的角度来看的话，它俩是一样的，它们俩个都是通过Eureka Client来连结到Eureka Server，也可以这么说，服务提供者和服务消费者都需要集成Eureka Client这个组件才可以。大致的思路就是通过Spring Boot搭建一个微服务应用，然后通过Eureka Client把它注册到Eureka Server里面。
 
-## Eureka Client 代码实现
+## 3. Eureka Client 代码实现
 
-### 创建 Module ，pom.xml
+### 3.1. 创建 Module ，pom.xml
 
 ```xml
 <dependencies>
@@ -220,7 +227,7 @@ public class EurekaServerApplication {
 </dependencies>
 ```
 
-### 创建配置文件 application.yml，添加 Eureka Client 相关配置
+### 3.2. 创建配置文件 application.yml，添加 Eureka Client 相关配置
 
 ```yaml
 server:
@@ -244,7 +251,7 @@ eureka:
 
 `eureka.instance.prefer-ip-address`：是否将当前服务的 IP 注册到 Eureka Server。
 
-### 创建启动类
+### 3.3. 创建启动类
 
 ```java
 package com.minichn;
@@ -260,7 +267,7 @@ public class ProviderApplication {
 }
 ```
 
-### 实体类
+### 3.4. 实体类
 
 ```java
 package com.minichn.entity;
@@ -279,7 +286,7 @@ public class Student {
 }
 ```
 
-### Repository
+### 3.5. Repository
 
 ```java
 package com.minichn.repository;
@@ -296,7 +303,7 @@ public interface StudentRepository {
 }
 ```
 
-### RepositoryImpl
+### 3.6. RepositoryImpl
 
 ```java
 package com.minichn.repository.impl;
@@ -343,7 +350,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 }
 ```
 
-### Handler
+### 3.7. Handler
 
 ```java
 package com.minichn.controller;
@@ -388,19 +395,19 @@ public class StudentHandler {
 }
 ```
 
-- 至此，服务提供者已创建成功，启动Eureka Server，然后启动Eureka Client，服务提供者就可以使用了。访问注册中心界面 http://localhost:8761 也会发现该服务已成功注册。
+- 至此，服务提供者已创建成功，启动Eureka Server，然后启动Eureka Client，服务提供者就可以使用了。访问注册中心界面 :tada: [http://localhost:8761](http://localhost:8761) :tada: 也会发现该服务已成功注册。
 
-## RestTemplate 的使用
+## 4. RestTemplate 的使用
 
-### 什么是 RestTemplate？
+### 4.1. 什么是 RestTemplate？
 
 RestTemplate 是 Spring 框架提供的基于 REST 的服务组件，底层是对 HTTP 请求及响应进行了封装，提供了很多访问 RETS 服务的方法，可以简化代码开发。
 
-### 如何使用 RestTemplate？
+### 4.2. 如何使用 RestTemplate？
 
-#### 创建 Maven 工程，pom.xml。
+#### 4.2.1 创建 Maven 工程，pom.xml。
 
-#### 创建实体类
+#### 4.2.2 创建实体类
 
 ```java
 package com.minichn.entity;
@@ -420,7 +427,7 @@ public class Student {
 
 ```
 
-#### Handler
+#### 4.2.3 Handler
 
 ```java
 package com.minichn.controller;
@@ -480,7 +487,7 @@ public class RestHandler {
 }
 ```
 
-#### 启动类
+#### 4.2.4 启动类
 
 ```java
 package com.minichn;
@@ -508,9 +515,9 @@ public class RestTemplateApplication {
 
 注意：这里只是测试获取服务提供者的服务，该模块只是一个普通的Spring Boot应用，跟微服务没有一丁点关系。
 
-## 服务消费者 consumer
+## 5. 服务消费者 consumer
 
-### 创建 Maven 工程，pom.xml
+### 5.1. 创建 Maven 工程，pom.xml
 
 ```xml
 <dependencies>
@@ -522,7 +529,7 @@ public class RestTemplateApplication {
 </dependencies>
 ```
 
-### 创建配置文件 application.yml
+### 5.2. 创建配置文件 application.yml
 
 ```yaml
 server:
@@ -538,7 +545,7 @@ eureka:
     prefer-ip-address: true
 ```
 
-### 创建启动类
+### 5.3. 创建启动类
 
 ```java
 package com.minichn;
@@ -561,7 +568,7 @@ public class ConsumerApplication {
 }
 ```
 
-### Handler
+### 5.4. Handler
 
 ```java
 package com.minichn.controller;
@@ -621,9 +628,9 @@ public class ConsumerHandler {
 }
 ```
 
-- 至此，服务消费者已创建成功，启动Eureka Server，然后启动Eureka Client，再启动 Consumer，Consumer就可以使用了，eg： http://localhost:8020/consumer/findAll 。访问注册中心界面 http://localhost:8761 也会发现该服务已成功注册。Consumer调用了Provider，所以说Consumer是服务消费者，Provider是服务提供者。但其实两者在代码上在组件的角度来看，他们本质都是一样的，都是通过Spring Boot搭建一个微服务应用，然后通过Eureka Client把它注册到Eureka Server里面。如果外面调用Consumer提供的接口的话，那么Consumer其实也是服务提供者，所以说他们只是业务中的区分。
+- 至此，服务消费者已创建成功，启动Eureka Server，然后启动Eureka Client，再启动 Consumer，Consumer就可以使用了，eg：  :tada: [http://localhost:8020/consumer/findAll](http://localhost:8020/consumer/findAll) :tada: 。访问注册中心界面  :tada: [http://localhost:8761](http://localhost:8761) :tada: 也会发现该服务已成功注册。Consumer调用了Provider，所以说Consumer是服务消费者，Provider是服务提供者。但其实两者在代码上在组件的角度来看，他们本质都是一样的，都是通过Spring Boot搭建一个微服务应用，然后通过Eureka Client把它注册到Eureka Server里面。如果外面调用Consumer提供的接口的话，那么Consumer其实也是服务提供者，所以说他们只是业务中的区分。
 
-## 服务网关
+## 6. 服务网关
 
 Spring Cloud 集成了 Zuul 组件，实现服务网关。
 
@@ -631,7 +638,7 @@ Spring Cloud 集成了 Zuul 组件，实现服务网关。
 
 Zuul 是 Netflix 提供的一个开源的 API 网关服务器，是客户端和网站后端所有请求的中间层，对外开放一个 API，将所有请求导入统一的入口，屏蔽了服务端的具体实现逻辑，Zuul 可以实现反向代理的功能，在网关内部实现动态路由、身份认证、IP 过滤、数据监控等。
 
-### 创建 Maven 工程，pom.xml
+### 6.1. 创建 Maven 工程，pom.xml
 
 ```xml
 <dependencies>
@@ -649,7 +656,7 @@ Zuul 是 Netflix 提供的一个开源的 API 网关服务器，是客户端和�
 </dependencies>
 ```
 
-### 创建配置文件 application.yml
+### 6.2. 创建配置文件 application.yml
 
 ```yaml
 server:
@@ -670,7 +677,7 @@ zuul:
 
 `zuul.routes.provider`：给服务提供者 provider 设置映射
 
-### 创建启动类
+### 6.3. 创建启动类
 
 ```java
 package com.minichn;
@@ -694,7 +701,7 @@ public class ZuulApplication {
 
 `@EnableAutoConfiguration`：可以帮助 Spring Boot 应用将所有符合条件的 `@Configuration` 配置加载到当前 Spring Boot 创建并使用的 IoC 容器中。
 
-### Zuul 自带了负载均衡功能，修改 provider 的代码。
+### 6.4. Zuul 自带了负载均衡功能，修改 provider 的代码。
 
 ```java
 package com.minichn.controller;
@@ -748,9 +755,9 @@ public class StudentHandler {
 }
 ```
 
-- 先启动注册中心，然后启动第一个Provider实例（端口8010），修改一下端口，再启动 第二个Provider实例，然后再启动网关。访问注册中心界面 http://localhost:8761 会发现服务都已注册进来了，访问： http://localhost:8030/p/student/index ，刷新发现两个服务交替响应，代表负载均衡成功。
+- 先启动注册中心，然后启动第一个Provider实例（端口8010），修改一下端口，再启动 第二个Provider实例，然后再启动网关。访问注册中心界面 :tada: [http://localhost:8761](http://localhost:8761) :tada: 会发现服务都已注册进来了，访问： :tada: [http://localhost:8030/p/student/index](http://localhost:8030/p/student/index) :tada: ，刷新发现两个服务交替响应，代表负载均衡成功。
 
-## Ribbon 负载均衡
+## 7. Ribbon 负载均衡
 
 - 什么是 Ribbon？
 
@@ -773,7 +780,7 @@ Eureka Server------------微服务B
         负 载 均 衡 请 求
 ```
 
-### 创建 Module，pom.xml
+### 7.1. 创建 Module，pom.xml
 
 ```xml
 <dependencies>
@@ -785,7 +792,7 @@ Eureka Server------------微服务B
 </dependencies>
 ```
 
-### 创建配置文件 application.yml
+### 7.2. 创建配置文件 application.yml
 
 ```yaml
 server:
@@ -801,7 +808,7 @@ eureka:
     prefer-ip-address: true
 ```
 
-### 创建启动类
+### 7.3. 创建启动类
 
 ```java
 package com.minichn;
@@ -828,7 +835,7 @@ public class RibbonApplication {
 
 `@LoadBalanced`：声明一个基于 Ribbon 的负载均衡。
 
-### Handler
+### 7.4. Handler
 
 ```java
 package com.minichn.controller;
@@ -860,28 +867,28 @@ public class RibbonHandler {
 }
 ```
 
-- 先启动注册中心，然后启动第一个Provider实例（端口8010），修改一下端口，再启动 第二个Provider实例，然后再启动Ribbon。访问注册中心界面 http://localhost:8761 会发现有两个Provider实例和一个Ribbon实例都已注册进来，访问： http://localhost:8040/ribbon/index ，刷新发现两个服务交替响应（默认的是轮询的负载均衡的策略），代表负载均衡成功。
+- 先启动注册中心，然后启动第一个Provider实例（端口8010），修改一下端口，再启动 第二个Provider实例，然后再启动Ribbon。访问注册中心界面 :tada: [http://localhost:8761](http://localhost:8761) :tada: 会发现有两个Provider实例和一个Ribbon实例都已注册进来，访问： :tada: [http://localhost:8040/ribbon/index](http://localhost:8040/ribbon/index) :tada: ，刷新发现两个服务交替响应（默认的是轮询的负载均衡的策略），代表负载均衡成功。
 
-## Feign
+## 8. Feign
 
-### 什么是 Feign？
+### 8.1. 什么是 Feign？
 
 与 Ribbon 一样，Feign 也是由 Netflix 提供的，Feign 是一个声明式、模版化的 Web Service 客户端，它简化了开发者编写 Web 服务客户端的操作，开发者可以通过简单的接口和注解来调用 HTTP API，Spring Cloud Feign，它整合了 Ribbon 和 Hystrix，具有可插拔、基于注解、负载均衡、服务熔断等一系列便捷功能。
 
 相比较于 Ribbon + RestTemplate 的方式，Feign 大大简化了代码的开发，Feign 支持多种注解，包括 Feign 本身的注解、JAX-RS 注解、Spring MVC 注解等，Spring Cloud 对 Feing 进行了优化，整合了 Ribbon 和 Eureka，从而让 Feign 的使用更加方便。
 
-### Ribbon 和 Feign 的区别
+### 8.2. Ribbon 和 Feign 的区别
 
 Ribbon 是一个通用的 HTTP 客户端工具，Feign 是基于 Ribbon 实现的。
 
-### Feign 的特点
+### 8.3. Feign 的特点
 
 - Feign 是一个声明式的 Web Service 客户端。
 - 支持 Feign 注解、Spring MVC 注解、JAX-RS 注解。
 - Feign 基于 Ribbon 实现，使用起来更加简单。
 - Feign 集成了 Hystrix，具备服务熔断的功能。
 
-### 创建 Module，pom.xml
+### 8.4. 创建 Module，pom.xml
 
 ```xml
 <dependencies>
@@ -899,7 +906,7 @@ Ribbon 是一个通用的 HTTP 客户端工具，Feign 是基于 Ribbon 实现�
 </dependencies>
 ```
 
-### 创建配置文件 application.yml
+### 8.5. 创建配置文件 application.yml
 
 ```yaml
 server:
@@ -915,7 +922,7 @@ eureka:
     prefer-ip-address: true
 ```
 
-### 创建启动类
+### 8.6. 创建启动类
 
 ```java
 package com.minichn;
@@ -933,7 +940,7 @@ public class FeignApplication {
 }
 ```
 
-### 创建声明式接口
+### 8.7. 创建声明式接口
 
 ```java
 package com.minichn.feign;
@@ -954,7 +961,7 @@ public interface FeignProviderClient {
 }
 ```
 
-### Handler
+### 8.8. Handler
 
 ```java
 package com.minichn.controller;
@@ -987,7 +994,7 @@ public class FeignHandler {
 }
 ```
 
-### 服务熔断，application.yml 添加熔断机制。
+### 8.9. 服务熔断，application.yml 添加熔断机制。
 
 ```yaml
 server:
@@ -1008,7 +1015,7 @@ feign:
 
 `feign.hystrix.enabled`：是否开启熔断器。
 
-### 创建 FeignProviderClient 接口的实现类 FeignError，定义容错处理逻辑，通过 `@Component` 注解将 FeignError 实例注入 IoC 容器中。
+### 8.10. 创建 FeignProviderClient 接口的实现类 FeignError，定义容错处理逻辑，通过 `@Component` 注解将 FeignError 实例注入 IoC 容器中。
 
 ```java
 package com.minichn.feign.impl;
@@ -1033,7 +1040,7 @@ public class FeignError implements FeignProviderClient {
 }
 ```
 
-### 在 FeignProviderClient 定义处通过 `@FeignClient` 的 fallback 属性设置映射（降级处理——交给FeignError处理）。
+### 8.11. 在 FeignProviderClient 定义处通过 `@FeignClient` 的 fallback 属性设置映射（降级处理——交给FeignError处理）。
 
 ```java
 package com.minichn.feign;
@@ -1055,13 +1062,13 @@ public interface FeignProviderClient {
 }
 ```
 
-- 先启动注册中心，不启动服务提供者，直接启动feign。访问： http://localhost:8050/feign/index ，发现请求已被熔断（降级处理给FeignError处理），避免连锁反应造成系统崩溃。
+- 先启动注册中心，不启动服务提供者，直接启动feign。访问： :tada: [http://localhost:8050/feign/index](http://localhost:8050/feign/index) :tada: ，发现请求已被熔断（降级处理给FeignError处理），避免连锁反应造成系统崩溃。
 
-## Hystrix 容错机制
+## 9. Hystrix 容错机制
 
 在不改变各个微服务调用关系的前提下，针对错误情况进行预先处理。
 
-### 设计原则
+### 9.1. 设计原则
 
 - 服务隔离机制
       服务隔离机制是指防止某个服务提供者出现问题而影响到整个系统的运行
@@ -1077,7 +1084,7 @@ public interface FeignProviderClient {
 
 Hystrix 数据监控需要结合 Spring Boot Actuator 来使用，Actuator 提供了对服务的健康监控、数据统计，可以通过 hystrix.stream 节点获取监控的请求数据，提供了可视化的监控界面。
 
-### 创建 Maven，pom.xml
+### 9.2. 创建 Maven，pom.xml
 
 ```xml
 <dependencies>
@@ -1114,7 +1121,7 @@ Hystrix 数据监控需要结合 Spring Boot Actuator 来使用，Actuator 提�
 </dependencies>
 ```
 
-### 创建配置文件 application.yml
+### 9.3. 创建配置文件 application.yml
 
 ```yaml
 server:
@@ -1142,7 +1149,7 @@ management:
 
 `management.endpoints.web.exposure.include`：配置数据监控。只需要将'hystrix.stream'节点配置进来就行。去监控数据时访问'hystrix.stream'节点，这个节点就会把所有的请求数据全部展示出来。
 
-### 创建启动类
+### 9.4. 创建启动类
 
 ```java
 package com.minichn;
@@ -1170,7 +1177,7 @@ public class HystrixApplication {
 
 `@EnableHystrixDashboard`：声明启用可视化数据监控
 
-### Handler
+### 9.5. Handler
 
 ```java
 package com.minichn.controller;
@@ -1203,16 +1210,16 @@ public class HystrixHandler {
 ```
 
 - 先启动注册中心，再启动服务提供者，然后启动hystrix。
-- 启动成功之后，访问 `http://localhost:8060/actuator/hystrix.stream` 可以监控到请求数据，
-- 访问 `http://localhost:8060/hystrix`，可以看到可视化的监控界面，输入要监控的地址节点即可看到该节点的可视化数据监控。
+- 启动成功之后，访问 :tada: [http://localhost:8060/actuator/hystrix.stream](http://localhost:8060/actuator/hystrix.stream) :tada: 可以监控到请求数据，
+- 访问 :tada: [http://localhost:8060/hystrix](http://localhost:8060/hystrix) :tada: ，可以看到可视化的监控界面，输入要监控的地址节点即可看到该节点的可视化数据监控。
 
-## Spring Cloud 配置中心
+## 10. Spring Cloud 配置中心
 
 Spring Cloud Config，通过服务端可以为多个客户端提供配置服务。Spring Cloud Config 可以将配置文件存储在本地，也可以将配置文件存储在远程 Git 仓库，创建 Config Server，通过它管理所有的配置文件。
 
-### 本地文件系统
+### 10.1. 本地文件系统
 
-#### 创建 Maven 工程，pom.xml
+#### 10.1.1 创建 Maven 工程，pom.xml
 
 ```xml
 <dependencies>
@@ -1224,7 +1231,7 @@ Spring Cloud Config，通过服务端可以为多个客户端提供配置服务�
 </dependencies>
 ```
 
-#### 创建 application.yml
+#### 10.1.2 创建 application.yml
 
 ```yaml
 server:
@@ -1247,7 +1254,7 @@ spring:
 
 `cloud.config.server.native.search-locations`：本地配置文件存放的路径
 
-#### resources 路径下创建 shared 文件夹，并在此路径下创建 configclient-dev.yml。
+#### 10.1.3 resources 路径下创建 shared 文件夹，并在此路径下创建 configclient-dev.yml。
 
 ```yaml
 server:
@@ -1257,7 +1264,7 @@ foo: foo version 1
 
 > 说明：为了方便演示，所以只是简单的配置了一下端口和版本。
 
-#### 创建启动类
+#### 10.1.4 创建启动类
 
 这个服务启动起来后就会给其他服务提供一个返回配置文件的需求。
 ```java
@@ -1280,9 +1287,9 @@ public class NativeConfigServerApplication {
 
 `@EnableConfigServer`：声明配置中心。
 
-### 创建客户端读取本地配置中心的配置文件
+### 10.2. 创建客户端读取本地配置中心的配置文件
 
-#### 创建 Maven 工程，pom.xml
+#### 10.2.1 创建 Maven 工程，pom.xml
 
 ```xml
 <dependencies>
@@ -1299,7 +1306,7 @@ public class NativeConfigServerApplication {
       `spring-cloud-starter-config`：读取
       `spring-cloud-config-server`：提供配置服务
 
-#### 创建 bootstrap.yml，配置读取本地配置中心的相关信息。
+#### 10.2.2 创建 bootstrap.yml，配置读取本地配置中心的相关信息。
 
 ```yaml
 spring:
@@ -1321,7 +1328,7 @@ spring:
 
 通过`spring.application.name` 结合`spring.profiles.active`拼接目标配置文件名，configclient-dev.yml，去 Config Server 中查找该文件。
 
-#### 创建启动类
+#### 10.2.3 创建启动类
 
 ```java
 package com.minichn;
@@ -1337,7 +1344,7 @@ public class NativeConfigClientApplication {
 }
 ```
 
-#### Handler
+#### 10.2.4 Handler
 
 ```java
 package com.minichn.controller;
@@ -1364,11 +1371,11 @@ public class NativeConfigHandler {
 }
 ```
 
-- 先启动注册中心，然后启动nativeconfigserver提供配置的输出，再启动 configclient读取配置，访问： http://localhost:8070/native/index ，这就相当于在访问configclient服务时把configserver里面的配置读取过来了。
+- 先启动注册中心，然后启动nativeconfigserver提供配置的输出，再启动 configclient读取配置，访问： :tada: [http://localhost:8070/native/index](http://localhost:8070/native/index) :tada: ，这就相当于在访问configclient服务时把configserver里面的配置读取过来了。
 
-## Spring Cloud Config 远程配置
+## 11. Spring Cloud Config 远程配置
 
-### 创建配置文件，上传至 GitHub
+### 11.1. 创建配置文件，上传至 GitHub
 
 ```yaml
 server:
@@ -1382,7 +1389,7 @@ spring:
     name: configclient
 ```
 
-### 创建 Config Server，新建 Maven 工程，pom.xml
+### 11.2. 创建 Config Server，新建 Maven 工程，pom.xml
 
 ```xml
 <dependencies>
@@ -1400,7 +1407,7 @@ spring:
 </dependencies>
 ```
 
-### 创建配置文件 application.yml
+### 11.3. 创建配置文件 application.yml
 
 ```yaml
 server:
@@ -1423,7 +1430,7 @@ eureka:
 
 > 注：uri要改为自己的github地址
 
-### 创建启动类
+### 11.4. 创建启动类
 
 ```java
 package com.minichn;
@@ -1441,9 +1448,9 @@ public class ConfigServerApplication {
 }
 ```
 
-### 创建 Config Client
+### 11.5. 创建 Config Client
 
-#### 创建 Maven 工程，pom.xml
+#### 11.5.1 创建 Maven 工程，pom.xml
 
 ```xml
 <dependencies>
@@ -1461,7 +1468,7 @@ public class ConfigServerApplication {
 </dependencies>
 ```
 
-#### 创建 bootstrap.yml
+#### 11.5.2 创建 bootstrap.yml
 
 ```yaml
 spring:
@@ -1488,7 +1495,7 @@ eureka:
 
 `spring.cloud.config.discovery.service-id`：配置中心在 Eureka Server 上注册的名称。
 
-#### 创建启动类
+#### 11.5.3 创建启动类
 
 ```java
 package com.minichn;
@@ -1504,7 +1511,7 @@ public class ConfigClientApplication {
 }
 ```
 
-#### Handler
+#### 11.5.4 Handler
 
 ```java
 package com.minichn.controller;
@@ -1528,17 +1535,17 @@ public class RemoteConfigHandler {
 }
 ```
 
-- 先启动注册中心，然后启动configserver提供配置的输出，再启动 configclient读取配置，访问： http://localhost:8070/remoteconfig/index ，这就相当于在访问configclient服务时把远程配置读取过来了。
+- 先启动注册中心，然后启动configserver提供配置的输出，再启动 configclient读取配置，访问： :tada: [http://localhost:8070/remoteconfig/index](http://localhost:8070/remoteconfig/index) :tada: ，这就相当于在访问configclient服务时把远程配置读取过来了。
 
-## 服务跟踪
+## 12. 服务跟踪
 
 Spring Cloud Zipkin
 
 Zipkin 是一个可以采集并且跟踪分布式系统中请求数据的组件，让开发者可以更加直观的监控到请求在各个微服务所耗费的时间等，Zipkin包括两部分内容：Zipkin Server（服务端采集微服务之间的数据）、Zipkin Client（客户端完成数据的展示）。
 
-### 创建 Zipkin Server
+### 12.1. 创建 Zipkin Server
 
-#### 创建 Maven 工程，pom.xml
+#### 12.1.1 创建 Maven 工程，pom.xml
 
 ```xml
 <dependencies>
@@ -1559,14 +1566,14 @@ Zipkin 是一个可以采集并且跟踪分布式系统中请求数据的组件�
 </dependencies>
 ```
 
-#### 创建配置文件 application.yml
+#### 12.1.2 创建配置文件 application.yml
 
 ```yaml
 server:
   port: 9090
 ```
 
-#### 创建启动类
+#### 12.1.3 创建启动类
 
 ```java
 package com.minichn;
@@ -1588,9 +1595,9 @@ public class ZipkinApplication {
 
 `@EnableZipkinServer`：声明启动 Zipkin Server
 
-### 创建 Zipkin Client
+### 12.2. 创建 Zipkin Client
 
-#### 创建 Maven 工程，pom.xml
+#### 12.2.1 创建 Maven 工程，pom.xml
 
 ```xml
 <dependencies>
@@ -1602,7 +1609,7 @@ public class ZipkinApplication {
 </dependencies>
 ```
 
-#### 创建配置文件 application.yml
+#### 12.2.2 创建配置文件 application.yml
 
 ```yaml
 server:
@@ -1632,7 +1639,7 @@ eureka:
 
 `srping.zipkin.base-url`：Zipkin Server 地址
 
-#### 创建启动类
+#### 12.2.3 创建启动类
 
 ```java
 package com.minichn;
@@ -1648,7 +1655,7 @@ public class ZipkinClientApplication {
 }
 ```
 
-#### Handler
+#### 12.2.4 Handler
 
 ```java
 package com.minichn.controller;
@@ -1672,4 +1679,4 @@ public class ZipkinHandler {
 }
 ```
 
-- 先启动注册中心，然后启动zipkinserver，再启动 zipkinclient，访问zipkin可视化ui： http://localhost:9090/zipkin/ ，点击Find按钮可以查看请求。访问 http://localhost:8090/zipkin/index ，然后返回ui界面刷新即可看到监控的请求。这样就可以通过zipkin对各个微服务之间的请求进行监控。
+- 先启动注册中心，然后启动zipkinserver，再启动 zipkinclient，访问zipkin可视化ui： :tada: [http://localhost:9090/zipkin/](http://localhost:9090/zipkin/) :tada: ，点击Find按钮可以查看请求。访问 :tada: [http://localhost:8090/zipkin/index](http://localhost:8090/zipkin/index) :tada: ，然后返回ui界面刷新即可看到监控的请求。这样就可以通过zipkin对各个微服务之间的请求进行监控。

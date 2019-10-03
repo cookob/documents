@@ -34,10 +34,9 @@ git config --global core.ignorecase false
 ``` bash 
 ssh-keygen -t rsa -C "邮箱@邮箱.com"
 ``` 
-然后一路enter键，无需输入信息，生成ssh key pair。
+然后一路Enter键，无需输入信息，生成 ssh key pair 。
 ``` bash 
 ssh-add ~/.ssh/id_rsa
-cat ~/.ssh/id_rsa.pub
 ```
 `add` 时如果出现 `Could not open a connection to your authentication agent.` 错误信息则
 
@@ -45,6 +44,10 @@ cat ~/.ssh/id_rsa.pub
 ``` bash 
 eval `ssh-agent`
 ```
+`add` 操作执行成功后，再执行 `cat`，然后将输出的公钥复制粘贴至个人SSH配置中。
+``` bash 
+cat ~/.ssh/id_rsa.pub
+``` 
 
 ## 常用的git命令
 ``` bash
@@ -72,17 +75,21 @@ git clone -> 工作区 -> git add -> 暂存区 -> git commit -> 版本库 -> git
 ## git操作常见错误
 
 - git checkout master时出错
-  error:  pathspec 'master' did not match any file(s) known to git.
-  这是因为还没有文件被提交过。即没有commit过任何文件。当commit过以后就可以切换分支了。
-  如果还不行，那就重新创建一下master分支，然后再切换就可以了。
+  ::: danger
+  `error:  pathspec 'master' did not match any file(s) known to git.`
+  :::
+  这是因为还没有文件被提交过。即没有`commit`过任何文件。当`commit`过以后就可以切换分支了。
+  如果还不行，那就重新创建一下`master`分支，然后再切换就可以了。
+  ``` bash
   git checkout -b master
   git checkout master
+  ``` 
   
 ## 一台机器操作多 github 账户
 
 1. 首先右键 git bash here
 
-2. 创建 id_rsa_新命名文件（一路enter键，无需输入信息）
+2. 创建 id_rsa_新命名文件（一路Enter键，无需输入信息）
 
 ``` bash 
 ssh-keygen -t rsa -f ~/.ssh/id_rsa_自行命名但不要和本机已安装的idrsa重名 -C "邮箱@邮箱.com"
@@ -122,8 +129,14 @@ ssh-agent -s
 ``` bash 
 ssh-add ~/.ssh/id_rsa_新命名文件名称
 ``` 
+`add` 时如果出现 `Could not open a connection to your authentication agent.` 错误信息则
 
-最后执行 `ssh-add -l` 验证是否有新添加的rsa
+先执行 eval 命令，然后再执行 add 操作
+``` bash 
+eval `ssh-agent`
+```
+
+最后执行 `ssh-add -l` 验证是否有新添加的 `rsa`
 
 6. cat
 
