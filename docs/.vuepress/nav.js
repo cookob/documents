@@ -5,40 +5,10 @@ module.exports = [
     {
         text: '学习笔记', 
         items: [
-			{
-                text: '计算机基础',
-				items: [
-					{text: '数据结构与算法', link: '/learnNotes/computerBasics/algorithm/'},
-                    {text: '操作系统', link: '/learnNotes/computerBasics/OS/'},
-                    {text: '计算机网络', link: '/learnNotes/computerBasics/network/'},
-					{text: '编译原理', link: '/learnNotes/computerBasics/compilationPrinciple/'},                 
-				]
-            },
-            {
-                text: '终端',
-				items: [
-                    {text: 'Vue', link: '/learnNotes/terminal/vue/'},
-                    {text: 'React', link: '/learnNotes/terminal/react/'},
-                    {text: 'Ant Design Pro', link: '/learnNotes/terminal/antd/'},
-					{text: 'Android', link: '/learnNotes/terminal/android/'},					
-				]
-            },
-            {
-                text: '单体-->微服务',
-				items: [
-					{text: 'Spring 全家桶', link: '/learnNotes/monomer2microService/springAll/'},
-					{text: 'Dubbo', link: '/learnNotes/monomer2microService/dubbo/'},
-					{text: 'Zookeeper', link: '/learnNotes/monomer2microService/zookeeper/'},
-					{text: 'Docker', link: '/learnNotes/monomer2microService/docker/'},
-				]
-            },
-            {
-                text: '微服务-->服务网格',
-				items: [
-					{text: 'Kubernetes', link: '/learnNotes/microService2serviceMesh/kubernetes/'},
-					{text: 'Istio', link: '/learnNotes/microService2serviceMesh/istio/'},
-				]
-            },
+			{text: '计算机基础', link: '/learnNotes/computerBasics/'},
+			{text: '终端', link: '/learnNotes/terminal/'},
+			{text: '单体->微服务', link: '/learnNotes/monomer2microService/'},
+			{text: '微服务->服务网格', link: '/learnNotes/microService2serviceMesh/'},
         ]
     },
     {
