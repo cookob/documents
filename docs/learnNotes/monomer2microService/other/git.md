@@ -158,3 +158,37 @@ ssh -T git@新命名.github.com
 
 如果成功会输出信息： Hi 新命名! You've successfully authenticated, but GitHub does not provide shell access.
 ``` 
+
+## 更新fork的代码
+
+1.增加源分支地址到你项目远程分支列表中(此处是关键)，先得将原来的仓库指定为upstream，命令为：
+
+``` bash  
+git remote add upstream https://github.com/被fork的仓库.git
+```
+
+2. 查看当前仓库的远程仓库地址和原仓库地址
+
+``` bash 
+git remote -v
+```
+
+3. 获取原仓库的更新:fetch源分支的新版本到本地，fetch后会被存储在一个本地分支upstream/master上。
+
+``` bash 
+git fetch upstream
+```
+
+4. 合并两个版本的代码(切换到本地master分支，合并upstream/master分支)
+
+``` bash 
+git merge upstream/master
+```
+
+如需输入信息则键入`i`，输入内容后按`Esc`退出编辑，键入`:wq`保存退出
+
+5. 这时候使用git log就能看到原仓库的更新了。
+
+git log
+
+6. 如果需要自己github上的fork的仓库需要保持同步更新，执行git push进行推送
