@@ -7,7 +7,9 @@
 
 于是赶快上手吧！
 
-:tada: [赶快上手吧](/documents/guide/notes/01) :tada:
+:tada: [赶快上手吧！](/documents/guide/notes/01) :tada:
+
+:tada: [原博客地址：https://cmini777.gitee.io/](https://cmini777.gitee.io/)  :tada: 
 
 
 ## 写博客文档的目的、想法 <Badge text="目的" type="warn"/><Badge text="想法" type="tip"/>
