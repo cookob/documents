@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>虚拟机安装Linux以及OpenStack基础环境搭建 | CMINI777</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    <link rel="icon" href="/documents/img/favicon.ico">
+    <link rel="stylesheet" href="/documents/css/style.css">
+    <meta name="description" content="人皆可以为尧舜">
+    <meta name="keywords" content="cookob,cmini777">
+    <link rel="preload" href="/documents/assets/css/0.styles.08bdb127.css" as="style"><link rel="preload" href="/documents/assets/js/app.9bd165a4.js" as="script"><link rel="preload" href="/documents/assets/js/2.460a223f.js" as="script"><link rel="preload" href="/documents/assets/js/14.f0acd3fc.js" as="script"><link rel="prefetch" href="/documents/assets/js/10.c130756a.js"><link rel="prefetch" href="/documents/assets/js/11.87c2ff61.js"><link rel="prefetch" href="/documents/assets/js/12.7253da24.js"><link rel="prefetch" href="/documents/assets/js/13.540bac0f.js"><link rel="prefetch" href="/documents/assets/js/15.312b93d1.js"><link rel="prefetch" href="/documents/assets/js/16.6fa8d0ed.js"><link rel="prefetch" href="/documents/assets/js/17.792989e2.js"><link rel="prefetch" href="/documents/assets/js/18.32275d39.js"><link rel="prefetch" href="/documents/assets/js/19.60532e42.js"><link rel="prefetch" href="/documents/assets/js/20.ad1c667a.js"><link rel="prefetch" href="/documents/assets/js/21.b23cc353.js"><link rel="prefetch" href="/documents/assets/js/22.06218dd9.js"><link rel="prefetch" href="/documents/assets/js/23.cf87ffbb.js"><link rel="prefetch" href="/documents/assets/js/24.b08b3dce.js"><link rel="prefetch" href="/documents/assets/js/25.3600f7b4.js"><link rel="prefetch" href="/documents/assets/js/26.8c719184.js"><link rel="prefetch" href="/documents/assets/js/27.e036d2a7.js"><link rel="prefetch" href="/documents/assets/js/28.dbcdbe2f.js"><link rel="prefetch" href="/documents/assets/js/29.a20a8810.js"><link rel="prefetch" href="/documents/assets/js/3.0c0d6041.js"><link rel="prefetch" href="/documents/assets/js/30.176717d5.js"><link rel="prefetch" href="/documents/assets/js/31.fe7735aa.js"><link rel="prefetch" href="/documents/assets/js/32.a24f6b44.js"><link rel="prefetch" href="/documents/assets/js/33.16e23301.js"><link rel="prefetch" href="/documents/assets/js/34.21086ac7.js"><link rel="prefetch" href="/documents/assets/js/35.e3b1de90.js"><link rel="prefetch" href="/documents/assets/js/36.e0fce91c.js"><link rel="prefetch" href="/documents/assets/js/37.2d3f4416.js"><link rel="prefetch" href="/documents/assets/js/38.e5efc164.js"><link rel="prefetch" href="/documents/assets/js/39.ed75cdb3.js"><link rel="prefetch" href="/documents/assets/js/4.ac435166.js"><link rel="prefetch" href="/documents/assets/js/40.8e550e58.js"><link rel="prefetch" href="/documents/assets/js/41.ed7ca11f.js"><link rel="prefetch" href="/documents/assets/js/42.07b47795.js"><link rel="prefetch" href="/documents/assets/js/43.ec93ca12.js"><link rel="prefetch" href="/documents/assets/js/44.bcd6757d.js"><link rel="prefetch" href="/documents/assets/js/45.cfc19110.js"><link rel="prefetch" href="/documents/assets/js/46.4f53a6cc.js"><link rel="prefetch" href="/documents/assets/js/47.026dfd6c.js"><link rel="prefetch" href="/documents/assets/js/48.2130a301.js"><link rel="prefetch" href="/documents/assets/js/49.735f874a.js"><link rel="prefetch" href="/documents/assets/js/5.4d63621b.js"><link rel="prefetch" href="/documents/assets/js/50.9f81b6ee.js"><link rel="prefetch" href="/documents/assets/js/51.4c4459df.js"><link rel="prefetch" href="/documents/assets/js/52.69c5273b.js"><link rel="prefetch" href="/documents/assets/js/53.ff158faa.js"><link rel="prefetch" href="/documents/assets/js/54.3211ee01.js"><link rel="prefetch" href="/documents/assets/js/55.b8d28776.js"><link rel="prefetch" href="/documents/assets/js/56.a7dcd7f3.js"><link rel="prefetch" href="/documents/assets/js/57.82af386f.js"><link rel="prefetch" href="/documents/assets/js/58.4ec928ed.js"><link rel="prefetch" href="/documents/assets/js/59.85fbd1ac.js"><link rel="prefetch" href="/documents/assets/js/6.e07703f8.js"><link rel="prefetch" href="/documents/assets/js/60.83ccc8b0.js"><link rel="prefetch" href="/documents/assets/js/61.e626be8b.js"><link rel="prefetch" href="/documents/assets/js/62.847e5912.js"><link rel="prefetch" href="/documents/assets/js/63.a676e910.js"><link rel="prefetch" href="/documents/assets/js/64.a14a9d48.js"><link rel="prefetch" href="/documents/assets/js/65.7f7ad05c.js"><link rel="prefetch" href="/documents/assets/js/66.ac57e33c.js"><link rel="prefetch" href="/documents/assets/js/67.f5840839.js"><link rel="prefetch" href="/documents/assets/js/7.91bee450.js"><link rel="prefetch" href="/documents/assets/js/8.e4e90eb2.js"><link rel="prefetch" href="/documents/assets/js/9.9c9a40a1.js">
+    <link rel="stylesheet" href="/documents/assets/css/0.styles.08bdb127.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/documents/" class="home-link router-link-active"><!----> <span class="site-name">CMINI777</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习笔记" class="dropdown-title"><span class="title">学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/learnNotes/computerBasics/" class="nav-link">
+  计算机基础
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/terminal/" class="nav-link">
+  终端
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/monomer2microService/" class="nav-link">
+  单体-&gt;微服务
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/microService2serviceMesh/" class="nav-link">
+  微服务-&gt;服务网格
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/cloud/" class="nav-link router-link-active">
+  云计算
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://qydev.weixin.qq.com/cdn/cdnjs.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Weixin CDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          前端大全
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <a href="https://github.com/cookob/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习笔记" class="dropdown-title"><span class="title">学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/learnNotes/computerBasics/" class="nav-link">
+  计算机基础
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/terminal/" class="nav-link">
+  终端
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/monomer2microService/" class="nav-link">
+  单体-&gt;微服务
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/microService2serviceMesh/" class="nav-link">
+  微服务-&gt;服务网格
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/cloud/" class="nav-link router-link-active">
+  云计算
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://qydev.weixin.qq.com/cdn/cdnjs.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Weixin CDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          前端大全
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <a href="https://github.com/cookob/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>openstack入门</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/documents/learnNotes/cloud/openstack/01.html" class="sidebar-link">OpenStack入门</a></li><li><a href="/documents/learnNotes/cloud/openstack/02.html" aria-current="page" class="active sidebar-link">虚拟机安装Linux以及OpenStack基础环境搭建</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>openstack实战</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="虚拟机安装linux以及openstack基础环境搭建"><a href="#虚拟机安装linux以及openstack基础环境搭建" class="header-anchor">#</a> 虚拟机安装Linux以及OpenStack基础环境搭建</h1> <p>🎉 相关博文链接 🎉</p> <p><a href="https://www.jianshu.com/p/552179808ebf" target="_blank" rel="noopener noreferrer">VMware Workstation15虚拟机安装教程<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>├── 以下两种安装方式二选一（推荐第一种）</p> <p>├──<a href="https://blog.csdn.net/babyxue/article/details/80970526" target="_blank" rel="noopener noreferrer">VMware安装Centos7超详细过程【虚拟机安装Linux】<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>└── <a href="https://blog.51cto.com/13914991/2300918" target="_blank" rel="noopener noreferrer">OpenStack云计算之环境搭建详解【虚拟机安装Linux】<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://developer.aliyun.com/mirror/centos?spm=a2c6h.13651102.0.0.3e221b114pWfdF" target="_blank" rel="noopener noreferrer">阿里云 CentOS 镜像<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://mirrors.aliyun.com/centos/" target="_blank" rel="noopener noreferrer">阿里云CentOS下载地址 https://mirrors.aliyun.com/centos/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer">清华大学开源软件镜像 https://mirrors.tuna.tsinghua.edu.cn/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://blog.csdn.net/u012081441/article/details/104960160/" target="_blank" rel="noopener noreferrer">win10安装虚拟机提示主IP地址显示网络信息不可用【主ip没有网络】<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://blog.csdn.net/qq_43473473/article/details/103115877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-5.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-5.channel_param" target="_blank" rel="noopener noreferrer">虚拟机 Centos7网络配置 ping：www.baidu.com:未知的名称或服务 ping不通【centos7网络不通调整】<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://www.cnblogs.com/ywb-articles/p/10742532.html" target="_blank" rel="noopener noreferrer">重启网卡的时候出现Job for network.service failed【mac地址问题】<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://jingyan.baidu.com/article/76a7e40919c691fc3b6e15ea.html" target="_blank" rel="noopener noreferrer">vm中对虚拟机快照进行克隆【vm克隆虚拟机】<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://blog.csdn.net/fengjunwang1980/article/details/78111832" target="_blank" rel="noopener noreferrer">xshell为什么连接不上ubuntu/centos<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://jingyan.baidu.com/article/84b4f565cb7afa60f6da32d4.html" target="_blank" rel="noopener noreferrer"><s>Linux系统\Centos没有网卡eth0配置文件怎么办？【没有eth0】</s><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://www.bilibili.com/video/BV1LJ411Y7og?p=2" target="_blank" rel="noopener noreferrer">老男孩教育视频<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>设置主机名（计算节点）
+<code>hostnamectl set-hostname compute01</code></p> <p>设置主机名（控制节点）
+<code>hostnamectl set-hostname controller01</code></p> <p>~~host解析（在控制节点上做）~~所有节点都做(加上之后都没有网了,隔天重启后又tdyd有网络了)</p> <p><code>vim /etc/hosts</code></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>192.168.43.20 controller01
+192.168.43.30 compute01
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><s>远程复制到控制节点</s> <code>scp -rp /etc/hosts 192.168.43.20:/etc/hosts</code></p> <p>测试网络是否调通
+<code>ping www.baidu.com</code></p> <p>关闭firewalld</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>systemctl stop firewalld
+
+systemctl disable firewalld //开机不要自启动
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>修改selinux</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>vim /etc/sysconfig/selinux
+
+selinux=enforcing 改为：selinux=disabled
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>关闭NetworkManager</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>systemctl stop NetworkManager
+
+systemctl disable NetworkManager //开机不要自启动
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>安装ntp服务</p> <p><code>yum -y install chrony</code></p> <p>修改配置文件：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>vim /etc/chrony.conf
+
+allow 192.168.43.0/24
+
+systemctl enable chronyd.service 
+systemctl start chronyd.service 
+
+another node:
+yum install -y chrony
+修改配置文件： vim /etc/chrony.conf
+server  controller01  iburst
+
+systemctl enable chronyd.service  &amp;&amp; systemctl start chronyd.service
+
+验证：
+控制节点：
+chronyc sources
+[root@controller01 ~]# chronyc sources
+此时会显示四个时间同步服务器（因为还是用的原来的四个）
+显示内容如下：
+210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^? time.cloudflare.com           3   8     1    98  -1195us[-1555us] +/-  125ms
+^- sv1.ggsrv.de                  2   6   377    91  -1355us[-1355us] +/-  107ms
+^- ntp6.flashdance.cx            2   6   373    90  +4916us[+4916us] +/-  168ms
+^* 139.199.215.251               2   7   377    93   -831us[-1193us] +/-   60ms
+
+
+计算节点：
+[root@compute01 ~]# chronyc sources 
+理应显示controller节点
+如果仍显示四个时间同步服务器，则需要重启一下服务
+systemctl start chronyd.service
+然后chronyc sources
+此时显示的内容如下：
+210 Number of sources = 1
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^? controller01                  0   6     0     -     +0ns[   +0ns] +/-    0ns
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br></div></div><p>配置openstack源</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>参考配置文件 /etc/yum.repos.d/文件 (cd /etc/yum.repos.d/)
+
+指定阿里云的源
+vim CentOS-Base.repo
+--------------------------------------------------------------------------------
+[base]
+name=CentOS-$releasever - Base
+#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os&amp;infra=$infra
+#baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/
+baseurl=https://mirrors.aliyun.com/centos/$releasever/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+#released updates 
+[updates]
+name=CentOS-$releasever - Updates
+#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=updates&amp;infra=$infra
+#baseurl=http://mirror.centos.org/centos/$releasever/updates/$basearch/
+baseurl=https://mirrors.aliyun.com/centos/$releasever/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+#additional packages that may be useful
+[extras]
+name=CentOS-$releasever - Extras
+#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=extras&amp;infra=$infra
+#baseurl=http://mirror.centos.org/centos/$releasever/extras/$basearch/
+baseurl=https://mirrors.aliyun.com/centos/$releasever/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+#additional packages that extend functionality of existing packages
+[centosplus]
+name=CentOS-$releasever - Plus
+#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=centosplus&amp;infra=$infra
+#baseurl=http://mirror.centos.org/centos/$releasever/centosplus/$basearch/
+baseurl=https://mirrors.aliyun.com/centos/$releasever/centosplus/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+--------------------------------------------------------------------------------
+或者安装
+yum  install  epel-release
+下面两个版本任选其一
+=================================================================================
+yum install centos-release-openstack-queens //queens版本
+yum install centos-release-openstack-stein //stein版本
+=================================================================================
+yum upgrade –y
+yum install openstack-selinux
+yum install python-openstackclient
+
+指定阿里云的源
+---------------------------------------------------------------------------------
+vim CentOS-OpenStack-stein.repo
+baseurl=https://mirrors.aliyun.com/centos/7/cloud/x86_64/openstack-stein/
+vim CentOS-Ceph-Nautilus.repo
+baseurl=https://mirrors.aliyun.com/centos/7/storage/x86_64/ceph-nautilus/
+vim CentOS-QEMU-EV.repo
+baseurl=https://mirrors.aliyun.com/centos/7/virt/x86_64/kvm-common/
+vim epel.repo
+baseurl=https://mirrors.aliyun.com/epel/7/$basearch
+baseurl=https://mirrors.aliyun.com/epel/7/$basearch/debug
+baseurl=https://mirrors.aliyun.com/epel/7/SRPMS
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br></div></div><p>安装SQL database（控制节点上安装）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>控制节点：
+yum install –y mariadb mariadb-server python2-PyMySQL
+
+修改配置文件：vim /etc/my.cnf.d/openstack.cnf 
+[mysqld]
+bind-address = 10.1.1.11 # 控制节点的管理IP 
+default-storage-engine = innodb 
+innodb_file_per_table = on 
+max_connections = 4096 
+collation-server = utf8_general_ci
+character-set-server = utf8
+
+服务启动并加入开启启动：
+systemctl enable mariadb.service  &amp;&amp; systemctl start mariadb.service
+
+查看重启是否成功（查看进程状态）
+ps aux | grep mysql
+有mysql就可以
+然后查看服务
+systemctl status mariadb
+
+初始化mysql的设置
+mysql_secure_installation
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p>安装消息队列（控制节点上安装）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>控制节点：
+yum install rabbitmq-server
+
+服务启动并加入开启启动：
+systemctl enable rabbitmq-server.service  &amp;&amp;  systemctl start rabbitmq-server.service
+
+添加openstack用户：
+rabbitmqctl add_user openstack openstack
+
+为openstack用户添加读写权限：
+rabbitmqctl set_permissions openstack &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;
+
+验证是否成功（查看进程状态）
+ps aux | grep rabbit
+或查看端口进程（端口号是5672）
+netstat -nlp | grep 5672
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>安装memcached（控制节点安装缓存）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>控制节点：
+yum install memcached python-memcached 
+
+编辑配置文件：vim /etc/sysconfig/memcached 
+OPTIONS=&quot;-l 127.0.0.1,::1,controller01&quot;
+
+服务启动并设置开启启动
+systemctl enable memcached.service  &amp;&amp; systemctl start memcached.service 
+
+验证是否成功（查看进程状态）
+ps aux | grep memcached
+或查看端口进程（端口号是11211）
+netstat -nlp | grep 11211
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>安装etcd服务：用来存储服务的基础信息</p> <p>（用来存储服务的基础信息，如果需要安装则在控制节点上安装，可以不安装）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>控制节点：
+yum -y install etcd
+
+修改配置文件：vim /etc/etcd/etcd.conf 
+#[Member] 
+ETCD_DATA_DIR=&quot;/var/lib/etcd/default.etcd&quot; 
+ETCD_LISTEN_PEER_URLS=&quot;http://controller01:2380&quot; 
+ETCD_LISTEN_CLIENT_URLS=&quot;http://controller01:2379&quot; 
+ETCD_NAME=&quot;controller01&quot; 
+#[Clustering] 
+ETCD_INITIAL_ADVERTISE_PEER_URLS=&quot;http://controller01:2380&quot; 
+ETCD_ADVERTISE_CLIENT_URLS=&quot;http://controller01:2379&quot; 
+ETCD_INITIAL_CLUSTER=&quot;controller01=http://controller01:2380&quot; 
+ETCD_INITIAL_CLUSTER_TOKEN=&quot;etcd-cluster-01&quot; 
+ETCD_INITIAL_CLUSTER_STATE=&quot;new&quot;
+
+官网的配置：
+#[Member] 
+ETCD_DATA_DIR=&quot;/var/lib/etcd/default.etcd&quot;
+ETCD_LISTEN_PEER_URLS=&quot;http://控制节点的IP:2380&quot;
+ETCD_LISTEN_CLIENT_URLS=&quot;http://控制节点的IP:2379&quot;
+ETCD_NAME=&quot;controller01&quot;
+#[Clustering] 
+ETCD_INITIAL_ADVERTISE_PEER_URLS=&quot;http://控制节点的IP:2380&quot; 
+ETCD_ADVERTISE_CLIENT_URLS=&quot;http://控制节点的IP:2379&quot; 
+ETCD_INITIAL_CLUSTER=&quot;controller01=http://控制节点的IP:2380&quot; 
+ETCD_INITIAL_CLUSTER_TOKEN=&quot;etcd-cluster-01&quot; 
+ETCD_INITIAL_CLUSTER_STATE=&quot;new&quot;
+
+服务启动并设置开机启动
+systemctl enable etcd &amp;&amp; systemctl restart etcd
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/cookob/documents/edit/master/docs/learnNotes/cloud/openstack/02.md" target="_blank" rel="noopener noreferrer">编辑文档！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2020-8-22 11:11:33 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/documents/learnNotes/cloud/openstack/01.html" class="prev">
+        OpenStack入门
+      </a></span> <span class="next"><a href="/documents/learnNotes/cloud/openstack/03.html">
+        实战
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/documents/assets/js/app.9bd165a4.js" defer></script><script src="/documents/assets/js/2.460a223f.js" defer></script><script src="/documents/assets/js/14.f0acd3fc.js" defer></script>
+  </body>
+</html>

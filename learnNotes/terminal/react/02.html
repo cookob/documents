@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>React整合ECharts | CMINI777</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    <link rel="icon" href="/documents/img/favicon.ico">
+    <link rel="stylesheet" href="/documents/css/style.css">
+    <meta name="description" content="人皆可以为尧舜">
+    <meta name="keywords" content="cookob,cmini777">
+    <link rel="preload" href="/documents/assets/css/0.styles.08bdb127.css" as="style"><link rel="preload" href="/documents/assets/js/app.9bd165a4.js" as="script"><link rel="preload" href="/documents/assets/js/2.460a223f.js" as="script"><link rel="preload" href="/documents/assets/js/64.a14a9d48.js" as="script"><link rel="prefetch" href="/documents/assets/js/10.c130756a.js"><link rel="prefetch" href="/documents/assets/js/11.87c2ff61.js"><link rel="prefetch" href="/documents/assets/js/12.7253da24.js"><link rel="prefetch" href="/documents/assets/js/13.540bac0f.js"><link rel="prefetch" href="/documents/assets/js/14.f0acd3fc.js"><link rel="prefetch" href="/documents/assets/js/15.312b93d1.js"><link rel="prefetch" href="/documents/assets/js/16.6fa8d0ed.js"><link rel="prefetch" href="/documents/assets/js/17.792989e2.js"><link rel="prefetch" href="/documents/assets/js/18.32275d39.js"><link rel="prefetch" href="/documents/assets/js/19.60532e42.js"><link rel="prefetch" href="/documents/assets/js/20.ad1c667a.js"><link rel="prefetch" href="/documents/assets/js/21.b23cc353.js"><link rel="prefetch" href="/documents/assets/js/22.06218dd9.js"><link rel="prefetch" href="/documents/assets/js/23.cf87ffbb.js"><link rel="prefetch" href="/documents/assets/js/24.b08b3dce.js"><link rel="prefetch" href="/documents/assets/js/25.3600f7b4.js"><link rel="prefetch" href="/documents/assets/js/26.8c719184.js"><link rel="prefetch" href="/documents/assets/js/27.e036d2a7.js"><link rel="prefetch" href="/documents/assets/js/28.dbcdbe2f.js"><link rel="prefetch" href="/documents/assets/js/29.a20a8810.js"><link rel="prefetch" href="/documents/assets/js/3.0c0d6041.js"><link rel="prefetch" href="/documents/assets/js/30.176717d5.js"><link rel="prefetch" href="/documents/assets/js/31.fe7735aa.js"><link rel="prefetch" href="/documents/assets/js/32.a24f6b44.js"><link rel="prefetch" href="/documents/assets/js/33.16e23301.js"><link rel="prefetch" href="/documents/assets/js/34.21086ac7.js"><link rel="prefetch" href="/documents/assets/js/35.e3b1de90.js"><link rel="prefetch" href="/documents/assets/js/36.e0fce91c.js"><link rel="prefetch" href="/documents/assets/js/37.2d3f4416.js"><link rel="prefetch" href="/documents/assets/js/38.e5efc164.js"><link rel="prefetch" href="/documents/assets/js/39.ed75cdb3.js"><link rel="prefetch" href="/documents/assets/js/4.ac435166.js"><link rel="prefetch" href="/documents/assets/js/40.8e550e58.js"><link rel="prefetch" href="/documents/assets/js/41.ed7ca11f.js"><link rel="prefetch" href="/documents/assets/js/42.07b47795.js"><link rel="prefetch" href="/documents/assets/js/43.ec93ca12.js"><link rel="prefetch" href="/documents/assets/js/44.bcd6757d.js"><link rel="prefetch" href="/documents/assets/js/45.cfc19110.js"><link rel="prefetch" href="/documents/assets/js/46.4f53a6cc.js"><link rel="prefetch" href="/documents/assets/js/47.026dfd6c.js"><link rel="prefetch" href="/documents/assets/js/48.2130a301.js"><link rel="prefetch" href="/documents/assets/js/49.735f874a.js"><link rel="prefetch" href="/documents/assets/js/5.4d63621b.js"><link rel="prefetch" href="/documents/assets/js/50.9f81b6ee.js"><link rel="prefetch" href="/documents/assets/js/51.4c4459df.js"><link rel="prefetch" href="/documents/assets/js/52.69c5273b.js"><link rel="prefetch" href="/documents/assets/js/53.ff158faa.js"><link rel="prefetch" href="/documents/assets/js/54.3211ee01.js"><link rel="prefetch" href="/documents/assets/js/55.b8d28776.js"><link rel="prefetch" href="/documents/assets/js/56.a7dcd7f3.js"><link rel="prefetch" href="/documents/assets/js/57.82af386f.js"><link rel="prefetch" href="/documents/assets/js/58.4ec928ed.js"><link rel="prefetch" href="/documents/assets/js/59.85fbd1ac.js"><link rel="prefetch" href="/documents/assets/js/6.e07703f8.js"><link rel="prefetch" href="/documents/assets/js/60.83ccc8b0.js"><link rel="prefetch" href="/documents/assets/js/61.e626be8b.js"><link rel="prefetch" href="/documents/assets/js/62.847e5912.js"><link rel="prefetch" href="/documents/assets/js/63.a676e910.js"><link rel="prefetch" href="/documents/assets/js/65.7f7ad05c.js"><link rel="prefetch" href="/documents/assets/js/66.ac57e33c.js"><link rel="prefetch" href="/documents/assets/js/67.f5840839.js"><link rel="prefetch" href="/documents/assets/js/7.91bee450.js"><link rel="prefetch" href="/documents/assets/js/8.e4e90eb2.js"><link rel="prefetch" href="/documents/assets/js/9.9c9a40a1.js">
+    <link rel="stylesheet" href="/documents/assets/css/0.styles.08bdb127.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/documents/" class="home-link router-link-active"><!----> <span class="site-name">CMINI777</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习笔记" class="dropdown-title"><span class="title">学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/learnNotes/computerBasics/" class="nav-link">
+  计算机基础
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/terminal/" class="nav-link router-link-active">
+  终端
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/monomer2microService/" class="nav-link">
+  单体-&gt;微服务
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/microService2serviceMesh/" class="nav-link">
+  微服务-&gt;服务网格
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/cloud/" class="nav-link">
+  云计算
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://qydev.weixin.qq.com/cdn/cdnjs.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Weixin CDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          前端大全
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <a href="https://github.com/cookob/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习笔记" class="dropdown-title"><span class="title">学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/learnNotes/computerBasics/" class="nav-link">
+  计算机基础
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/terminal/" class="nav-link router-link-active">
+  终端
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/monomer2microService/" class="nav-link">
+  单体-&gt;微服务
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/microService2serviceMesh/" class="nav-link">
+  微服务-&gt;服务网格
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/cloud/" class="nav-link">
+  云计算
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://qydev.weixin.qq.com/cdn/cdnjs.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Weixin CDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          前端大全
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <a href="https://github.com/cookob/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>React</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/documents/learnNotes/terminal/react/01.html" class="sidebar-link">React入门</a></li><li><a href="/documents/learnNotes/terminal/react/02.html" aria-current="page" class="active sidebar-link">React整合ECharts</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/documents/learnNotes/terminal/react/02.html#创建react应用" class="sidebar-link">创建React应用</a></li><li class="sidebar-sub-header"><a href="/documents/learnNotes/terminal/react/02.html#下载echarts" class="sidebar-link">下载echarts</a></li><li class="sidebar-sub-header"><a href="/documents/learnNotes/terminal/react/02.html#引入echarts" class="sidebar-link">引入echarts</a></li><li class="sidebar-sub-header"><a href="/documents/learnNotes/terminal/react/02.html#在src目录下创建存放组件的文件夹components，编写linechartstacked组件" class="sidebar-link">在src目录下创建存放组件的文件夹components，编写LineChartStacked组件</a></li><li class="sidebar-sub-header"><a href="/documents/learnNotes/terminal/react/02.html#在app-js中引入组件" class="sidebar-link">在App.js中引入组件</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Ant Design Pro</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Android</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Netty</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="react整合echarts"><a href="#react整合echarts" class="header-anchor">#</a> React整合ECharts</h1> <h2 id="创建react应用"><a href="#创建react应用" class="header-anchor">#</a> 创建React应用</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>npx create-react-app react-echarts 
+<span class="token builtin class-name">cd</span> react-echarts 
+<span class="token function">npm</span> start
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="下载echarts"><a href="#下载echarts" class="header-anchor">#</a> 下载echarts</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> echarts --save-dev
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="引入echarts"><a href="#引入echarts" class="header-anchor">#</a> 引入echarts</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">import</span> echarts from <span class="token string">'echarts'</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="在src目录下创建存放组件的文件夹components，编写linechartstacked组件"><a href="#在src目录下创建存放组件的文件夹components，编写linechartstacked组件" class="header-anchor">#</a> 在src目录下创建存放组件的文件夹components，编写LineChartStacked组件</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">import</span> React , <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> from <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token function">import</span> echarts from <span class="token string">'echarts'</span><span class="token punctuation">;</span>
+
+class LineChartStacked extends Component<span class="token punctuation">{</span>
+
+    constructor<span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        super<span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        this.state <span class="token operator">=</span> <span class="token punctuation">{</span>
+            id:Math.random<span class="token punctuation">(</span><span class="token punctuation">)</span>.toString<span class="token punctuation">(</span><span class="token punctuation">)</span>,
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function-name function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        // 基于准备好的dom，初始化echarts实例
+        <span class="token builtin class-name">let</span> myChart <span class="token operator">=</span> echarts.init<span class="token punctuation">(</span>document.getElementById<span class="token punctuation">(</span>this.state.id<span class="token punctuation">))</span><span class="token punctuation">;</span>
+
+        <span class="token builtin class-name">let</span> option <span class="token operator">=</span> <span class="token punctuation">{</span>
+            title: <span class="token punctuation">{</span>
+                text: this.props.title
+            <span class="token punctuation">}</span>,
+            tooltip: <span class="token punctuation">{</span>
+                trigger: <span class="token string">'axis'</span>
+            <span class="token punctuation">}</span>,
+            legend: <span class="token punctuation">{</span>
+                data:<span class="token punctuation">[</span><span class="token string">'邮件营销'</span>,<span class="token string">'联盟广告'</span>,<span class="token string">'视频广告'</span>,<span class="token string">'直接访问'</span>,<span class="token string">'搜索引擎'</span><span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>,
+            grid: <span class="token punctuation">{</span>
+                left: <span class="token string">'3%'</span>,
+                right: <span class="token string">'4%'</span>,
+                bottom: <span class="token string">'3%'</span>,
+                containLabel: <span class="token boolean">true</span>
+            <span class="token punctuation">}</span>,
+            toolbox: <span class="token punctuation">{</span>
+                feature: <span class="token punctuation">{</span>
+                    saveAsImage: <span class="token punctuation">{</span><span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>,
+            xAxis: <span class="token punctuation">{</span>
+                type: <span class="token string">'category'</span>,
+                boundaryGap: false,
+                data: <span class="token punctuation">[</span><span class="token string">'周一'</span>,<span class="token string">'周二'</span>,<span class="token string">'周三'</span>,<span class="token string">'周四'</span>,<span class="token string">'周五'</span>,<span class="token string">'周六'</span>,<span class="token string">'周日'</span><span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>,
+            yAxis: <span class="token punctuation">{</span>
+                type: <span class="token string">'value'</span>
+            <span class="token punctuation">}</span>,
+            series: <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    name:<span class="token string">'邮件营销'</span>,
+                    type:<span class="token string">'line'</span>,
+                    stack: <span class="token string">'总量'</span>,
+                    data:<span class="token punctuation">[</span><span class="token number">120</span>, <span class="token number">132</span>, <span class="token number">101</span>, <span class="token number">134</span>, <span class="token number">90</span>, <span class="token number">230</span>, <span class="token number">210</span><span class="token punctuation">]</span>
+                <span class="token punctuation">}</span>,
+                <span class="token punctuation">{</span>
+                    name:<span class="token string">'联盟广告'</span>,
+                    type:<span class="token string">'line'</span>,
+                    stack: <span class="token string">'总量'</span>,
+                    data:<span class="token punctuation">[</span><span class="token number">220</span>, <span class="token number">182</span>, <span class="token number">191</span>, <span class="token number">234</span>, <span class="token number">290</span>, <span class="token number">330</span>, <span class="token number">310</span><span class="token punctuation">]</span>
+                <span class="token punctuation">}</span>,
+                <span class="token punctuation">{</span>
+                    name:<span class="token string">'视频广告'</span>,
+                    type:<span class="token string">'line'</span>,
+                    stack: <span class="token string">'总量'</span>,
+                    data:<span class="token punctuation">[</span><span class="token number">150</span>, <span class="token number">232</span>, <span class="token number">201</span>, <span class="token number">154</span>, <span class="token number">190</span>, <span class="token number">330</span>, <span class="token number">410</span><span class="token punctuation">]</span>
+                <span class="token punctuation">}</span>,
+                <span class="token punctuation">{</span>
+                    name:<span class="token string">'直接访问'</span>,
+                    type:<span class="token string">'line'</span>,
+                    stack: <span class="token string">'总量'</span>,
+                    data:<span class="token punctuation">[</span><span class="token number">320</span>, <span class="token number">332</span>, <span class="token number">301</span>, <span class="token number">334</span>, <span class="token number">390</span>, <span class="token number">330</span>, <span class="token number">320</span><span class="token punctuation">]</span>
+                <span class="token punctuation">}</span>,
+                <span class="token punctuation">{</span>
+                    name:<span class="token string">'搜索引擎'</span>,
+                    type:<span class="token string">'line'</span>,
+                    stack: <span class="token string">'总量'</span>,
+                    data:<span class="token punctuation">[</span><span class="token number">820</span>, <span class="token number">932</span>, <span class="token number">901</span>, <span class="token number">934</span>, <span class="token number">1290</span>, <span class="token number">1330</span>, <span class="token number">1320</span><span class="token punctuation">]</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+        // 绘制图表
+        myChart.setOption<span class="token punctuation">(</span>option<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function-name function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token builtin class-name">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>div <span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token punctuation">{</span>this.state.id<span class="token punctuation">}</span> <span class="token assign-left variable">style</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>width:<span class="token string">'100%'</span>,height:500<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>/div<span class="token operator">&gt;</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token builtin class-name">export</span> default LineChartStacked<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br></div></div><h2 id="在app-js中引入组件"><a href="#在app-js中引入组件" class="header-anchor">#</a> 在App.js中引入组件</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">import</span> React , <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> from <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token function">import</span> LineChartStacked from <span class="token string">'./components/LineChartStacked'</span><span class="token punctuation">;</span>
+
+class App extends Component<span class="token punctuation">{</span>
+
+    <span class="token function-name function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token builtin class-name">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>div <span class="token assign-left variable">className</span><span class="token operator">=</span><span class="token string">&quot;App&quot;</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>LineChartStacked  <span class="token assign-left variable">title</span><span class="token operator">=</span><span class="token string">&quot;折线图堆叠&quot;</span>/<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>/div<span class="token operator">&gt;</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token builtin class-name">export</span> default App<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/cookob/documents/edit/master/docs/learnNotes/terminal/react/02.md" target="_blank" rel="noopener noreferrer">编辑文档！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2019-10-3 6:19:13 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/documents/learnNotes/terminal/react/01.html" class="prev">
+        React入门
+      </a></span> <span class="next"><a href="/documents/learnNotes/terminal/antd/01.html">
+        Ant Design Pro入门
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/documents/assets/js/app.9bd165a4.js" defer></script><script src="/documents/assets/js/2.460a223f.js" defer></script><script src="/documents/assets/js/64.a14a9d48.js" defer></script>
+  </body>
+</html>

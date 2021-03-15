@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>React入门 | CMINI777</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    <link rel="icon" href="/documents/img/favicon.ico">
+    <link rel="stylesheet" href="/documents/css/style.css">
+    <meta name="description" content="人皆可以为尧舜">
+    <meta name="keywords" content="cookob,cmini777">
+    <link rel="preload" href="/documents/assets/css/0.styles.08bdb127.css" as="style"><link rel="preload" href="/documents/assets/js/app.9bd165a4.js" as="script"><link rel="preload" href="/documents/assets/js/2.460a223f.js" as="script"><link rel="preload" href="/documents/assets/js/63.a676e910.js" as="script"><link rel="prefetch" href="/documents/assets/js/10.c130756a.js"><link rel="prefetch" href="/documents/assets/js/11.87c2ff61.js"><link rel="prefetch" href="/documents/assets/js/12.7253da24.js"><link rel="prefetch" href="/documents/assets/js/13.540bac0f.js"><link rel="prefetch" href="/documents/assets/js/14.f0acd3fc.js"><link rel="prefetch" href="/documents/assets/js/15.312b93d1.js"><link rel="prefetch" href="/documents/assets/js/16.6fa8d0ed.js"><link rel="prefetch" href="/documents/assets/js/17.792989e2.js"><link rel="prefetch" href="/documents/assets/js/18.32275d39.js"><link rel="prefetch" href="/documents/assets/js/19.60532e42.js"><link rel="prefetch" href="/documents/assets/js/20.ad1c667a.js"><link rel="prefetch" href="/documents/assets/js/21.b23cc353.js"><link rel="prefetch" href="/documents/assets/js/22.06218dd9.js"><link rel="prefetch" href="/documents/assets/js/23.cf87ffbb.js"><link rel="prefetch" href="/documents/assets/js/24.b08b3dce.js"><link rel="prefetch" href="/documents/assets/js/25.3600f7b4.js"><link rel="prefetch" href="/documents/assets/js/26.8c719184.js"><link rel="prefetch" href="/documents/assets/js/27.e036d2a7.js"><link rel="prefetch" href="/documents/assets/js/28.dbcdbe2f.js"><link rel="prefetch" href="/documents/assets/js/29.a20a8810.js"><link rel="prefetch" href="/documents/assets/js/3.0c0d6041.js"><link rel="prefetch" href="/documents/assets/js/30.176717d5.js"><link rel="prefetch" href="/documents/assets/js/31.fe7735aa.js"><link rel="prefetch" href="/documents/assets/js/32.a24f6b44.js"><link rel="prefetch" href="/documents/assets/js/33.16e23301.js"><link rel="prefetch" href="/documents/assets/js/34.21086ac7.js"><link rel="prefetch" href="/documents/assets/js/35.e3b1de90.js"><link rel="prefetch" href="/documents/assets/js/36.e0fce91c.js"><link rel="prefetch" href="/documents/assets/js/37.2d3f4416.js"><link rel="prefetch" href="/documents/assets/js/38.e5efc164.js"><link rel="prefetch" href="/documents/assets/js/39.ed75cdb3.js"><link rel="prefetch" href="/documents/assets/js/4.ac435166.js"><link rel="prefetch" href="/documents/assets/js/40.8e550e58.js"><link rel="prefetch" href="/documents/assets/js/41.ed7ca11f.js"><link rel="prefetch" href="/documents/assets/js/42.07b47795.js"><link rel="prefetch" href="/documents/assets/js/43.ec93ca12.js"><link rel="prefetch" href="/documents/assets/js/44.bcd6757d.js"><link rel="prefetch" href="/documents/assets/js/45.cfc19110.js"><link rel="prefetch" href="/documents/assets/js/46.4f53a6cc.js"><link rel="prefetch" href="/documents/assets/js/47.026dfd6c.js"><link rel="prefetch" href="/documents/assets/js/48.2130a301.js"><link rel="prefetch" href="/documents/assets/js/49.735f874a.js"><link rel="prefetch" href="/documents/assets/js/5.4d63621b.js"><link rel="prefetch" href="/documents/assets/js/50.9f81b6ee.js"><link rel="prefetch" href="/documents/assets/js/51.4c4459df.js"><link rel="prefetch" href="/documents/assets/js/52.69c5273b.js"><link rel="prefetch" href="/documents/assets/js/53.ff158faa.js"><link rel="prefetch" href="/documents/assets/js/54.3211ee01.js"><link rel="prefetch" href="/documents/assets/js/55.b8d28776.js"><link rel="prefetch" href="/documents/assets/js/56.a7dcd7f3.js"><link rel="prefetch" href="/documents/assets/js/57.82af386f.js"><link rel="prefetch" href="/documents/assets/js/58.4ec928ed.js"><link rel="prefetch" href="/documents/assets/js/59.85fbd1ac.js"><link rel="prefetch" href="/documents/assets/js/6.e07703f8.js"><link rel="prefetch" href="/documents/assets/js/60.83ccc8b0.js"><link rel="prefetch" href="/documents/assets/js/61.e626be8b.js"><link rel="prefetch" href="/documents/assets/js/62.847e5912.js"><link rel="prefetch" href="/documents/assets/js/64.a14a9d48.js"><link rel="prefetch" href="/documents/assets/js/65.7f7ad05c.js"><link rel="prefetch" href="/documents/assets/js/66.ac57e33c.js"><link rel="prefetch" href="/documents/assets/js/67.f5840839.js"><link rel="prefetch" href="/documents/assets/js/7.91bee450.js"><link rel="prefetch" href="/documents/assets/js/8.e4e90eb2.js"><link rel="prefetch" href="/documents/assets/js/9.9c9a40a1.js">
+    <link rel="stylesheet" href="/documents/assets/css/0.styles.08bdb127.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/documents/" class="home-link router-link-active"><!----> <span class="site-name">CMINI777</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习笔记" class="dropdown-title"><span class="title">学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/learnNotes/computerBasics/" class="nav-link">
+  计算机基础
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/terminal/" class="nav-link router-link-active">
+  终端
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/monomer2microService/" class="nav-link">
+  单体-&gt;微服务
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/microService2serviceMesh/" class="nav-link">
+  微服务-&gt;服务网格
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/cloud/" class="nav-link">
+  云计算
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://qydev.weixin.qq.com/cdn/cdnjs.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Weixin CDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          前端大全
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <a href="https://github.com/cookob/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习笔记" class="dropdown-title"><span class="title">学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/learnNotes/computerBasics/" class="nav-link">
+  计算机基础
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/terminal/" class="nav-link router-link-active">
+  终端
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/monomer2microService/" class="nav-link">
+  单体-&gt;微服务
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/microService2serviceMesh/" class="nav-link">
+  微服务-&gt;服务网格
+</a></li><li class="dropdown-item"><!----> <a href="/documents/learnNotes/cloud/" class="nav-link">
+  云计算
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://qydev.weixin.qq.com/cdn/cdnjs.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Weixin CDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          前端大全
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div> <a href="https://github.com/cookob/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>React</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/documents/learnNotes/terminal/react/01.html" aria-current="page" class="active sidebar-link">React入门</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/documents/learnNotes/terminal/react/01.html#创建react应用" class="sidebar-link">创建React应用</a></li><li class="sidebar-sub-header"><a href="/documents/learnNotes/terminal/react/01.html#实战代码-编写todolist列表项组件" class="sidebar-link">实战代码——编写TodoList列表项组件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/documents/learnNotes/terminal/react/01.html#index-js是入口" class="sidebar-link">index.js是入口</a></li><li class="sidebar-sub-header"><a href="/documents/learnNotes/terminal/react/01.html#编写父组件todolist" class="sidebar-link">编写父组件TodoList</a></li><li class="sidebar-sub-header"><a href="/documents/learnNotes/terminal/react/01.html#编写子组件todoitem" class="sidebar-link">编写子组件TodoItem</a></li><li class="sidebar-sub-header"><a href="/documents/learnNotes/terminal/react/01.html#编写style-css，使用css样式粗犷修饰" class="sidebar-link">编写style.css，使用css样式粗犷修饰</a></li></ul></li></ul></li><li><a href="/documents/learnNotes/terminal/react/02.html" class="sidebar-link">React整合ECharts</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Ant Design Pro</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Android</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Netty</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="react入门"><a href="#react入门" class="header-anchor">#</a> React入门</h1> <h1 id="运用react实现todolist功能"><a href="#运用react实现todolist功能" class="header-anchor">#</a> 运用React实现TodoList功能</h1> <h2 id="创建react应用"><a href="#创建react应用" class="header-anchor">#</a> 创建React应用</h2> <p><a href="https://react.docschina.org/docs/create-a-new-react-app.html" target="_blank" rel="noopener noreferrer">参考官网地址：Create React App<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>首先安装 Node &gt;= 8.10 和 npm &gt;= 5.6</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>npx create-react-app my-app  //创建名称为my-app的应用
+<span class="token builtin class-name">cd</span> my-app
+<span class="token function">npm</span> start
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="实战代码-编写todolist列表项组件"><a href="#实战代码-编写todolist列表项组件" class="header-anchor">#</a> 实战代码——编写TodoList列表项组件</h2> <h3 id="index-js是入口"><a href="#index-js是入口" class="header-anchor">#</a> index.js是入口</h3> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>//index.js是入口
+//引入React帮助理解React的语法,eg:以大写字母开头的都是组件、标签语法等等
+<span class="token function">import</span> React from <span class="token string">'react'</span><span class="token punctuation">;</span>
+//把组件渲染到DOM节点上
+<span class="token function">import</span> ReactDOM from <span class="token string">'react-dom'</span><span class="token punctuation">;</span>
+
+//App是最外层的组件，在React中以大写字母开头的都是组件
+//import App from <span class="token string">'./App'</span><span class="token punctuation">;</span>
+
+//引入TodoList组件<span class="token punctuation">(</span>在同级目录下创建TodoList.js<span class="token punctuation">)</span>
+<span class="token function">import</span> TodoList from <span class="token string">'./TodoList'</span><span class="token punctuation">;</span>
+
+//引入css
+<span class="token function">import</span> <span class="token string">'./style.css'</span><span class="token punctuation">;</span>
+
+//把App组件渲染到id为root的标签中
+//ReactDOM.render<span class="token punctuation">(</span><span class="token operator">&lt;</span>App /<span class="token operator">&gt;</span>, document.getElementById<span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">))</span><span class="token punctuation">;</span>
+
+//TodoList列表
+ReactDOM.render<span class="token punctuation">(</span><span class="token operator">&lt;</span>TodoList /<span class="token operator">&gt;</span>, document.getElementById<span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">))</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h3 id="编写父组件todolist"><a href="#编写父组件todolist" class="header-anchor">#</a> 编写父组件TodoList</h3> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">import</span> React , <span class="token punctuation">{</span> Component , Fragment <span class="token punctuation">}</span> from <span class="token string">'react'</span><span class="token punctuation">;</span>
+//引入子组件TodoItem<span class="token punctuation">(</span>在同级目录下创建TodoItem.js<span class="token punctuation">)</span>
+<span class="token function">import</span> TodoItem from <span class="token string">'./TodoItem'</span><span class="token punctuation">;</span>
+
+/*定义一个叫做TodoList的React组件，
+只要组件继承Component就变成了组件。
+那么组件是什么呢？组件就是页面中的一部分。
+*/
+class TodoList extends Component<span class="token punctuation">{</span>
+
+  /*ES6语法：当TodoList刚被创建的时候，constructor会自动执行*/
+  constructor<span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    super<span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    //创建了数据项并存储
+    this.state <span class="token operator">=</span> <span class="token punctuation">{</span>
+        //初始化list
+        list:<span class="token punctuation">[</span>
+        <span class="token string">'learn react1'</span>,
+        <span class="token string">'learn react2'</span>
+        <span class="token punctuation">]</span>,
+        //定义inputValue
+        inputValue: <span class="token string">''</span>
+    <span class="token punctuation">}</span>
+
+    //bind<span class="token punctuation">(</span>this<span class="token punctuation">)</span>让函数的this指向TodoList组件
+    this.handleInputChange <span class="token operator">=</span> this.handleInputChange.bind<span class="token punctuation">(</span>this<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    this.handleButtonClick <span class="token operator">=</span> this.handleButtonClick.bind<span class="token punctuation">(</span>this<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    this.handleDelete <span class="token operator">=</span> this.handleDelete.bind<span class="token punctuation">(</span>this<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  //按钮点击事件
+  <span class="token function-name function">handleButtonClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    //调用setState改变数组
+    this.setState<span class="token punctuation">(</span><span class="token punctuation">{</span>
+        list: <span class="token punctuation">[</span><span class="token punctuation">..</span>.this.state.list,this.state.inputValue<span class="token punctuation">]</span>,//<span class="token punctuation">..</span>.是ES6语法，把之前的内容放在里面，同时也增加了内容
+        inputValue: <span class="token string">''</span>//点击后清空inputValue，输入框DOM节点又引用了这个值
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  //输入框输入事件
+  handleInputChange<span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    this.setState<span class="token punctuation">(</span><span class="token punctuation">{</span>
+        inputValue: e.target.value//修改inputValue变为输入框输入的值（input DOM节点的值）
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  //列表项的删除，React的思想不让操作DOM，只需要操作数据即可
+  // handleItemClick<span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  //   const list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">..</span>.this.state.list<span class="token punctuation">]</span><span class="token punctuation">;</span>//尽量不要直接操作原list，作一个副本进行操作，让性能和可调试性达到最优。
+  //   list.splice<span class="token punctuation">(</span>index,1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  //   this.setState<span class="token punctuation">(</span><span class="token punctuation">{</span>
+  //       list //ES6中键和值是一样的话，可以直接这么写
+  //       //list: list //将新的list覆盖掉之前的list
+  //   <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  // <span class="token punctuation">}</span>
+
+  //父组件与子组件通信
+  //父组件通过属性的形式向子组件传递参数
+  //然后子组件通过属性的形式<span class="token punctuation">(</span>props<span class="token punctuation">)</span>接收从父组件传递过来的参数
+  //列表项的删除
+  handleDelete<span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    const list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">..</span>.this.state.list<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    list.splice<span class="token punctuation">(</span>index,1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    this.setState<span class="token punctuation">(</span><span class="token punctuation">{</span>
+        list 
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  //获取列表项
+  <span class="token function-name function">getTodoItems</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">return</span> <span class="token punctuation">(</span>
+        /*map是对数组做循环的函数*/
+        this.state.list.map<span class="token punctuation">((</span>item,index<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            // <span class="token builtin class-name">return</span> <span class="token operator">&lt;</span>li <span class="token assign-left variable">key</span><span class="token operator">=</span><span class="token punctuation">{</span>index<span class="token punctuation">}</span> 
+            //         <span class="token assign-left variable">onClick</span><span class="token operator">=</span><span class="token punctuation">{</span>this.handleItemClick.bind<span class="token punctuation">(</span>this,index<span class="token punctuation">)</span> /*bind<span class="token punctuation">(</span>this<span class="token punctuation">)</span>让函数的this指向TodoList组件*/<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+            //         <span class="token punctuation">{</span>item<span class="token punctuation">}</span>
+            //        <span class="token operator">&lt;</span>/li<span class="token operator">&gt;</span> /*循环展示时react要求每一项内容都要有key值且值唯一*/
+
+            <span class="token builtin class-name">return</span> <span class="token punctuation">(</span>
+                <span class="token operator">&lt;</span>TodoItem 
+                <span class="token assign-left variable">deleteTodoItem</span><span class="token operator">=</span><span class="token punctuation">{</span>this.handleDelete<span class="token punctuation">}</span>
+                <span class="token assign-left variable">key</span><span class="token operator">=</span><span class="token punctuation">{</span>index<span class="token punctuation">}</span> 
+                <span class="token assign-left variable">index</span><span class="token operator">=</span><span class="token punctuation">{</span>index<span class="token punctuation">}</span> 
+                <span class="token assign-left variable">content</span><span class="token operator">=</span><span class="token punctuation">{</span>item 
+                /*将item值传递给TodoItem组件，
+                即：父组件通过属性的形式向子组件传递参数*/
+                <span class="token punctuation">}</span> /<span class="token operator">&gt;</span>
+            <span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  //render<span class="token punctuation">(</span><span class="token punctuation">)</span>函数负责页面要显示的内容
+  <span class="token function-name function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    //return的内容就是页面内容
+    //这里使用的是jsx语法，可以直接使用标签显示的语法结构
+    <span class="token builtin class-name">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>Fragment<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span>input 
+              <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token punctuation">{</span>this.state.inputValue<span class="token punctuation">}</span> 
+              <span class="token assign-left variable">onChange</span><span class="token operator">=</span><span class="token punctuation">{</span>this.handleInputChange
+              /*输入后改变了inputValue，从而改变了该节点的值*/ 
+              <span class="token punctuation">}</span>/<span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span>button /*style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>background: <span class="token string">'red'</span>,color: <span class="token string">'#fff'</span><span class="token punctuation">}</span><span class="token punctuation">}</span> 最外层<span class="token punctuation">{</span><span class="token punctuation">}</span>代表里面是js表达式，里面的<span class="token punctuation">{</span><span class="token punctuation">}</span>代表js对象*/ 
+              <span class="token assign-left variable">className</span><span class="token operator">=</span><span class="token string">'red_btn'</span>             
+              <span class="token assign-left variable">onClick</span><span class="token operator">=</span><span class="token punctuation">{</span>this.handleButtonClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>add<span class="token operator">&lt;</span>/button<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>/div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span>React强调的是面向数据编程，对于DOM的操作React会自动帮你处理<span class="token operator">&lt;</span>/span<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>ul<span class="token operator">&gt;</span><span class="token punctuation">{</span>this.getTodoItems<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span>/ul<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>/Fragment<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+
+/*定义完组件后导出，然后其他文件中才可以导入，导出和导入是配对使用的*/
+<span class="token builtin class-name">export</span> default TodoList<span class="token punctuation">;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br></div></div><h3 id="编写子组件todoitem"><a href="#编写子组件todoitem" class="header-anchor">#</a> 编写子组件TodoItem</h3> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">import</span> React , <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> from <span class="token string">'react'</span><span class="token punctuation">;</span>
+
+//列表项的子组件
+class TodoItem extends Component<span class="token punctuation">{</span>
+
+    constructor<span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        super<span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        this.handleDelete <span class="token operator">=</span> this.handleDelete.bind<span class="token punctuation">(</span>this<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    //子组件如果想和父组件进行通信，子组件要调用父组件传递过来的方法
+    //通过deleteTodoItem属性传递过来handleDelete方法，
+    //然后子组件调用了父组件的handleDelete并传递了索引值index
+    <span class="token function-name function">handleDelete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        const <span class="token punctuation">{</span> deleteTodoItem,index <span class="token punctuation">}</span> <span class="token operator">=</span> this.props<span class="token punctuation">;</span>//ES6解构
+        deleteTodoItem<span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        // this.props.deleteTodoItem<span class="token punctuation">(</span>this.props.index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function-name function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        const <span class="token punctuation">{</span> content <span class="token punctuation">}</span> <span class="token operator">=</span> this.props<span class="token punctuation">;</span>//this.props.content 通过属性的形式<span class="token punctuation">(</span>props<span class="token punctuation">)</span>接收从父组件传递过来的参数
+        <span class="token builtin class-name">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>div 
+            <span class="token assign-left variable">onClick</span><span class="token operator">=</span><span class="token punctuation">{</span>this.handleDelete<span class="token punctuation">}</span> <span class="token operator">&gt;</span>
+            <span class="token punctuation">{</span>content<span class="token punctuation">}</span>
+            <span class="token operator">&lt;</span>/div<span class="token operator">&gt;</span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token builtin class-name">export</span> default TodoItem<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><h3 id="编写style-css，使用css样式粗犷修饰"><a href="#编写style-css，使用css样式粗犷修饰" class="header-anchor">#</a> 编写style.css，使用css样式粗犷修饰</h3> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>.red_btn<span class="token punctuation">{</span>
+    background: red<span class="token punctuation">;</span>
+    color: <span class="token comment">#fff;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>至此，TodoList列表项组件的编写已完成。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/cookob/documents/edit/master/docs/learnNotes/terminal/react/01.md" target="_blank" rel="noopener noreferrer">编辑文档！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2019-10-3 6:19:13 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/documents/learnNotes/terminal/vue/vueAdmin.html" class="prev">
+        Vue Element Admin入门
+      </a></span> <span class="next"><a href="/documents/learnNotes/terminal/react/02.html">
+        React整合ECharts
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/documents/assets/js/app.9bd165a4.js" defer></script><script src="/documents/assets/js/2.460a223f.js" defer></script><script src="/documents/assets/js/63.a676e910.js" defer></script>
+  </body>
+</html>
